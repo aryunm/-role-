@@ -1,0 +1,37 @@
+{
+  "manifest_version": 3,
+  "name": "腾讯文档收集表自动填写助手",
+  "version": "1.0.0",
+  "description": "自动获取并填写腾讯文档收集表问题",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "点击开始自动填写"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://docs.qq.com/form/*"
+      ],
+      "js": ["content_scripts/content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [],
+      "matches": []
+    }
+  ],
+  "background": {
+    "service_worker": "background/background.js"
+  }
+}

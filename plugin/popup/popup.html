@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自动填写助手</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="container">
+        <h2>腾讯文档收集表自动填写</h2>
+        
+        <!-- 控制区域 -->
+        <div class="control-section">
+            <button id="fetchQuestions" class="btn btn-primary">获取问题</button>
+            <button id="saveHistory" class="btn btn-secondary" disabled>保存当前为历史</button>
+        </div>
+
+        <!-- 状态显示 -->
+        <div id="status" class="status">就绪</div>
+
+        <!-- 历史记录区域 -->
+        <div class="history-section">
+            <label for="historySelect">历史记录:</label>
+            <select id="historySelect" class="form-control">
+                <option value="">-- 选择历史记录 --</option>
+            </select>
+            <button id="loadHistory" class="btn btn-secondary" disabled>加载</button>
+            <button id="deleteHistory" class="btn btn-danger" disabled>删除</button>
+        </div>
+
+        <!-- 问题列表区域 -->
+        <div id="questionsContainer" class="questions-container">
+            <!-- 动态生成的问题输入框将在这里显示 -->
+            <div class="empty-state">
+                点击"获取问题"以加载表单问题
+            </div>
+        </div>
+
+        <!-- 底部操作按钮 -->
+        <div class="action-section">
+            <button id="fillAll" class="btn btn-success" disabled>一键填写</button>
+            <button id="clearAll" class="btn btn-warning" disabled>清空所有</button>
+        </div>
+    </div>
+
+    <script src="../utils/storage.js"></script>
+    <script src="../utils/messaging.js"></script>
+    <script src="popup.js"></script>
+</body>
+</html>
